@@ -1,4 +1,4 @@
-import { Client, Account, Databases, Query, ID } from 'appwrite';
+import { Client, Databases, Query, ID } from 'appwrite';
 import { Question, Subject, Progress,QuestionData } from '../types/types';
 
 if (!process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || !process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID) {
