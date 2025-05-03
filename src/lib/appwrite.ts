@@ -1,4 +1,4 @@
-import { Client, Account, Databases, Query, ID, Models } from 'appwrite';
+import { Client, Account, Databases, Query, ID } from 'appwrite';
 import { Question, Subject, Progress,QuestionData } from '../types/types';
 
 if (!process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT || !process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID) {
@@ -9,7 +9,7 @@ const client = new Client()
     .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT)
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID);
 
-const account = new Account(client);
+//const account = new Account(client);
 const databases = new Databases(client);
 
 export const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
@@ -86,7 +86,7 @@ export const appwrite = {
         const promises = questions.map(question => 
           { 
             const qId=ID.unique();
-            const questionResponse= databases.createDocument(
+             databases.createDocument(
                 DATABASE_ID,
                 QUESTIONS_COLLECTION_ID,
                 qId,
@@ -98,7 +98,7 @@ export const appwrite = {
                 subject: question.subject
               }
             )
-            const progressResponse= databases.createDocument(
+             databases.createDocument(
                 DATABASE_ID,
                 PROGRESS_COLLECTION_ID,
                 'unique()',

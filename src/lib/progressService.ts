@@ -1,4 +1,4 @@
-import { Question, Subject, Progress } from '@/types/types';
+import { Progress } from '@/types/types';
 import { appwrite } from '@/lib/appwrite';
 
 export const progressService = {
@@ -7,7 +7,7 @@ export const progressService = {
         if(questionId == null) return;
 
         const progressItem = progress.find(item => item.questionId === questionId);
-        let newProgressItem:Progress    = {} as Progress;
+        const newProgressItem:Progress    = {} as Progress;
         if(progressItem) {
             newProgressItem.correctCount = progressItem.correctCount;
             newProgressItem.wrongCount = progressItem.wrongCount;

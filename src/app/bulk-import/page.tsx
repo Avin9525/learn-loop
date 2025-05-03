@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Question, Subject,Progress, QuestionData } from '../../types/types';
+import { Subject, QuestionData } from '../../types/types';
 import { appwrite } from '../../lib/appwrite';
 import { toast } from 'react-hot-toast';
 
@@ -30,6 +30,7 @@ export default function BulkImport() {
 
         } catch (error) {
             toast.error('Failed to load subjects');
+            console.error(error);
         }
     };
 
@@ -50,6 +51,7 @@ export default function BulkImport() {
             toast.success('Subject added successfully');
         } catch (error) {
             toast.error('Failed to add subject');
+            console.error(error);
         }
     };
 
@@ -72,6 +74,7 @@ export default function BulkImport() {
             toast.success('Tag added successfully');
         } catch (error) {
             toast.error('Failed to add tag');
+            console.error(error);
         }
     };
    
@@ -91,6 +94,7 @@ export default function BulkImport() {
             }
         } catch (error) {
             toast.error('Error parsing JSON. Please check the format.');
+            console.error(error);
         }
     };
 
@@ -115,6 +119,7 @@ export default function BulkImport() {
                 }
             } catch (error) {
                 toast.error('Error parsing JSON file');
+                console.error(error);
             }
         };
         reader.readAsText(file);
@@ -141,6 +146,7 @@ export default function BulkImport() {
             toast.success('Questions imported successfully');
         } catch (error) {
             toast.error('Failed to import questions');
+            console.error(error);
         } finally {
             setIsLoading(false);
         }
@@ -151,14 +157,14 @@ export default function BulkImport() {
         toast.success('Question deleted');
     };
 
-    const handleUpdateQuestion = (index: number, field: keyof Omit<QuestionData, '$id'>, value: any) => {
+    const handleUpdateQuestion = (index: number, field: keyof Omit<QuestionData, '$id'>, value: unknown) => {
         setQuestions(questions.map((q, i) => {
             if (i === index) {
                 // If subject is being changed, clear all tags
                 if (field === 'subject') {
                     return { 
                         ...q, 
-                        subject: value, 
+                        subject: value as string, 
                         tags: value === selectedSubject && selectedTag ? [selectedTag] : [] 
                     };
                 }
@@ -198,6 +204,7 @@ export default function BulkImport() {
                     toast.success('Tag added to subject');
                 } catch (error) {
                     toast.error('Failed to update subject tags');
+                    console.error(error);
                 }
             }
         }
