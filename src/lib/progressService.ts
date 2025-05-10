@@ -101,7 +101,7 @@ export const progressService = {
     },
 
     updateProgressFromMcqLoop: async (questionId: string) => {
-        const progressItems = await appwrite.getProgressByQuestionId(questionId);
+        const progressItems: Progress[] = await appwrite.getProgressByQuestionId(questionId);
         
         if (progressItems.length > 0) {
             const progressItem = progressItems[0];
