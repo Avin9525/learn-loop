@@ -359,7 +359,7 @@ export default function McqLoop(){
                                 Drill Completed!
                             </h2>
                             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                                Congratulations! You've successfully mastered all questions in this drill.
+                                Congratulations! You have successfully mastered all questions in this drill.
                             </p>
                         </div>
                         
