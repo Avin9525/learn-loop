@@ -100,16 +100,20 @@ export const progressService = {
         }
     },
 
-    updateProgressFromMcqLoop: async (questionId:string) => {
+    updateProgressFromMcqLoop: async (questionId: string) => {
+        const progressItems = await appwrite.getProgressByQuestionId(questionId);
         
-        const progressItem = await appwrite.getProgressByQuestionId(questionId);
-        console.log(progressItem[0].$id);
-        progressItem[0].totalAttempts = progressItem[0].totalAttempts + 2;
-        try{
-            await appwrite.updateProgress(progressItem[0].$id, {totalAttempts : progressItem[0].totalAttempts});
-           } catch (error) {
-            console.log(error); 
-           }
+        if (progressItems.length > 0) {
+            const progressItem = progressItems[0];
+            console.log(progressItem.$id);
+            const updatedAttempts = progressItem.totalAttempts + 2;
+            
+            try {
+                await appwrite.updateProgress(progressItem.$id, {totalAttempts: updatedAttempts});
+            } catch (error) {
+                console.log(error);
+            }
+        }
     }
 
     
