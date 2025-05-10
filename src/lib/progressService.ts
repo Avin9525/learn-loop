@@ -98,7 +98,20 @@ export const progressService = {
         } else {
             return totalAttempts + Math.trunc(easyRating/10);
         }
+    },
+
+    updateProgressFromMcqLoop: async (questionId:string) => {
+        
+        const progressItem = await appwrite.getProgressByQuestionId(questionId);
+        console.log(progressItem[0].$id);
+        progressItem[0].totalAttempts = progressItem[0].totalAttempts + 2;
+        try{
+            await appwrite.updateProgress(progressItem[0].$id, {totalAttempts : progressItem[0].totalAttempts});
+           } catch (error) {
+            console.log(error); 
+           }
     }
 
+    
 
 }

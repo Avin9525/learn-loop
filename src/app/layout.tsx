@@ -37,8 +37,8 @@ export default function RootLayout({
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-4">
                 <Link href="/" className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-               
                 <Link href="/test" className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">Test</Link>
+                <Link href="/mcq-loop" className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">MCQ Loop</Link>
                 <Link href="/bulk-import" className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium">Bulk Import</Link>
               </div>
             </div>

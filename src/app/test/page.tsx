@@ -119,7 +119,7 @@ export default function TestPage() {
               
             } else {
                 // Get questions for a specific subject
-                olderProgress = await appwrite.getNewestProgressbySubject(selectedSubject, olderQuestionNumber);
+                olderProgress = await appwrite.getOldProgressbySubject(selectedSubject, olderQuestionNumber);
             }
             const combinedProgress = [...newProgress, ...olderProgress];
  

@@ -309,5 +309,19 @@ export const appwrite = {
                 id
         );
         return response as unknown as Question;
-    }
+    },
+
+    getProgressByQuestionId: async (questionId: string) => {
+        try {
+            const response = await databases.listDocuments(
+                DATABASE_ID,
+                PROGRESS_COLLECTION_ID,
+                [Query.equal('questionId', questionId)]
+            );
+            return response.documents as unknown as Progress;
+        } catch (error) {
+            console.error('Error getting progress by question ID:', error);
+            throw new Error('Failed to load progress by question ID');
+        }
+    },
 }; 
