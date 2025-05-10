@@ -105,7 +105,7 @@ const AnswerOption = ({ option, index, selected, disabled, showCorrect, isCorrec
   );
 };
 
-export default function mcqLoop(){
+export default function McqLoop(){
     const [isConfiguringSettings, setIsConfiguringSettings] = useState<boolean>(true);
     const [subjects, setSubjects] = useState<Subject[]>([]);
     const [selectedSubject, setSelectedSubject] = useState<string>("");
