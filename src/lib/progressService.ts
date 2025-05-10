@@ -1,6 +1,8 @@
 import { Progress } from '@/types/types';
 import { appwrite } from '@/lib/appwrite';
 
+
+
 export const progressService = {
 
     calcAndUpdateProgress: async (progress:Progress[], questionId:string|null, isCorrect:boolean) => {
@@ -101,18 +103,20 @@ export const progressService = {
     },
 
     updateProgressFromMcqLoop: async (questionId: string) => {
-        const progressItems: Progress[] = await appwrite.getProgressByQuestionId(questionId);
-        
-        if (progressItems.length > 0) {
-            const progressItem = progressItems[0];
-            console.log(progressItem.$id);
-            const updatedAttempts = progressItem.totalAttempts + 2;
+        try {
+            const result = await appwrite.getProgressByQuestionId(questionId);
             
-            try {
+            if (Array.isArray(result) && result.length > 0 && result[0].$id && 
+                typeof result[0].totalAttempts === 'number') {
+                
+                const progressItem = result[0] as Progress;
+                console.log(progressItem.$id);
+                const updatedAttempts = progressItem.totalAttempts + 2;
+                
                 await appwrite.updateProgress(progressItem.$id, {totalAttempts: updatedAttempts});
-            } catch (error) {
-                console.log(error);
             }
+        } catch (error) {
+            console.log(error);
         }
     }
 
