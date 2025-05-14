@@ -285,7 +285,7 @@ export default function TestPage() {
                                         Score: {score}/{currentQuestionIndex + 1}
                                     </span>
                                 </div>
-                                <p className="text-gray-300 mb-6">{currentQuestion.question}</p>
+                                <p className="text-gray-300 mb-6 whitespace-pre-line">{currentQuestion.question}</p>
                                 
                                 <div className="space-y-3">
                                     {currentQuestion.options.map((option, index) => (
