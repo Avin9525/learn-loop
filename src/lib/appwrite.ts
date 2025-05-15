@@ -179,6 +179,7 @@ export const appwrite = {
 
     getNewestProgressbyTag: async (tag:string, limit: number = 10) => {
         try {
+            
             const response = await databases.listDocuments(
                 DATABASE_ID,
                 PROGRESS_COLLECTION_ID,
@@ -186,6 +187,7 @@ export const appwrite = {
                     Query.search('tags', tag),
                     Query.orderAsc('totalAttempts'), // Sort by attempt count (lowest first)
                     Query.limit(limit)
+                    
                 ]
             );
             return response.documents as unknown as Progress[];

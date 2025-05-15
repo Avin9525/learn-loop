@@ -379,7 +379,7 @@ export default function McqLoop(){
           <div className="w-full max-w-3xl mx-auto py-20">
             {/* Quiz Header */}
            
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-4 flex items-center justify-between">
               <h1 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
                 <BrainCircuit size={28} className="text-indigo-600 dark:text-indigo-400" />
                 <span>QuizMaster</span>
@@ -407,16 +407,16 @@ export default function McqLoop(){
             
             {/* Current Question */}
             
-            <div className="w-full max-w-3xl mx-auto animate-fadeIn bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 md:p-8">
-                <div className="mb-8">
+            <div className="w-full max-w-3xl mx-auto animate-fadeIn bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 md:p-6">
+                <div className="mb-4">
                     <span className="inline-block px-3 py-1 mb-4 text-xs font-medium rounded-full bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">
                         Question {currentQuestionIndex+1} of {questions.length}
                     </span>
-                    <h2 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 min-h-[3rem] leading-tight">
+                    <h2 className="text-lg md:text-xl  text-gray-800 whitespace-pre-line dark:text-gray-100 mb-2 tracking-wider min-h-[3rem] leading-tight">
                         {questions[currentQuestionIndex]?.question}
                     </h2>
 
-                    <div className="space-y-3 min-h-[200px]">
+                    <div className="space-y-2 min-h-[150px] tracking-wider text-lg">
                         {questions[currentQuestionIndex]?.options.map((option, index) => (
                             <AnswerOption
                                 key={index}
