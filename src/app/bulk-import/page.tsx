@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Subject, QuestionData } from '../../types/types';
 import { appwrite } from '../../lib/appwrite';
 import { toast } from 'react-hot-toast';
+import Link from 'next/link';
 
 export default function BulkImport() {
     const [subjects, setSubjects] = useState<Subject[]>([]);
@@ -221,8 +222,19 @@ export default function BulkImport() {
     return (
         <div className="min-h-screen bg-gray-900 py-24 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
+                <div className="flex justify-between items-center mb-6">
+                    <h1 className="text-2xl font-bold text-white">Bulk Import Questions</h1>
+                    <Link 
+                        href="/question-format" 
+                        className="text-blue-400 hover:text-blue-300 flex items-center gap-2"
+                    >
+                        <span>View Question Format Documentation</span>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </Link>
+                </div>
                 <div className="text-center">
-                    <h1 className="text-3xl font-bold text-white mb-2">Bulk Import Questions</h1>
                     <p className="text-gray-300">
                         Import multiple questions in JSON format and manage them before saving
                     </p>
