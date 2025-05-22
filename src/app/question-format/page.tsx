@@ -95,7 +95,7 @@ export default function QuestionFormat() {
             <li>Go to the <Link href="/bulk-import" className="text-blue-600 hover:text-blue-800">Bulk Import</Link> page</li>
             <li>Either paste your JSON directly into the text area or upload a JSON file</li>
             <li>Select the appropriate subject and tags</li>
-            <li>Click "Import Questions" to add them to the system</li>
+            <li>Click &quot;Import Questions&quot; to add them to the system</li>
           </ol>
         </div>
       </section>
@@ -121,7 +121,7 @@ export default function QuestionFormat() {
           <ul className="list-disc pl-5 space-y-2 text-gray-600">
             <li>Use clear list labels (e.g., List-I, List-II)</li>
             <li>Number or letter the items in each list (e.g., A, B, C or 1, 2, 3)</li>
-            <li>Format options as comma-separated pairs (e.g., "A-1, B-2, C-3")</li>
+            <li>Format options as comma-separated pairs (e.g., &quot;A-1, B-2, C-3&quot;)</li>
             <li>Provide detailed explanations for each correct match</li>
             <li>Ensure all items from both lists are used in the correct answer</li>
             <li>Include distractors that are plausible but incorrect</li>
@@ -151,7 +151,7 @@ export default function QuestionFormat() {
           </pre>
         </div>
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="font-semibold mb-3">Guidelines for "Choose the Incorrect Option" Questions:</h3>
+          <h3 className="font-semibold mb-3">Guidelines for &quot;Choose the Incorrect Option&quot; Questions:</h3>
           <ul className="list-disc pl-5 space-y-2 text-gray-600">
             <li>Question should clearly indicate that one option is incorrect</li>
             <li>All other options should be factually correct</li>
@@ -163,8 +163,8 @@ export default function QuestionFormat() {
           <div className="mt-4 p-4 bg-gray-50 rounded-lg">
             <h4 className="font-medium mb-2">Question Structure Tips:</h4>
             <ul className="list-disc pl-5 space-y-1 text-gray-600">
-              <li>Start with a clear context (e.g., "1946 का कैबिनेट मिशन...")</li>
-              <li>Use phrases like "निम्नलिखित में से कौन सही नहीं है?" or "कौन इसका सदस्य नहीं था?"</li>
+              <li>Start with a clear context (e.g., &quot;1946 का कैबिनेट मिशन...&quot;)</li>
+              <li>Use phrases like &quot;निम्नलिखित में से कौन सही नहीं है?&quot; or &quot;कौन इसका सदस्य नहीं था?&quot;</li>
               <li>Ensure all correct options are equally significant</li>
               <li>Make the incorrect option subtly different to test understanding</li>
             </ul>
